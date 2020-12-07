@@ -1,3 +1,4 @@
 module.exports = {
-  outputDir: 'gen-dist'
-}
+  outputDir: 'gen-dist',
+  lintOnSave: false
+};
