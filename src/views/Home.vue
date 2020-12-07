@@ -1,44 +1,44 @@
 <template>
-  <div>
-    <h1>This is the home page {{ companyList }}</h1>
-    <ul id="example-1">
-      <table>
-        <tr v-for="item in companyList" :key="item.id">
-          <td>{{ item.id }} sdlkjsdlsjdl</td>
-          <td>{{ item.name }} sdlkjsdlsjdl</td>
-          <td>
-            <button
-              :id="item.id"
-              v-on:click="onNavigate($event, 'edit-company')"
-            >
-              Edit details
-            </button>
-          </td>
-          <td>
-            <button
-              :id="item.id"
-              v-on:click="onNavigate($event, 'view-company')"
-            >
-              View details
-            </button>
-          </td>
-        </tr>
-      </table>
-    </ul>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <SimpleCard widthStyle="360px">
+          <h2 class="title">Companies</h2>
+          <table class="table">
+            <tr v-for="item in companyList" :key="item.id">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+              <td>
+                <button
+                  :id="item.id"
+                  v-on:click="onNavigate($event, 'edit-company')"
+                >
+                  Edit details
+                </button>
+              </td>
+              <td>
+                <button
+                  :id="item.id"
+                  v-on:click="onNavigate($event, 'view-company')"
+                >
+                  View details
+                </button>
+              </td>
+            </tr>
+          </table>
+        </SimpleCard>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import services from "../services/CompanyService";
+import SimpleCard from "../components/SimpleCard";
 
 export default {
   name: "home",
   data() {
-    services.getAll().then((response) => {
-      return {
-        companyList: null,
-      };
-    });
     return {
       companyList: null,
     };
@@ -54,7 +54,6 @@ export default {
     },
     onNavigate: function (event, tRoute) {
       const targetId = event.currentTarget.id;
-      console.log(targetId); // returns 'foo'
       this.$router.push(tRoute + "/" + targetId);
     },
   },

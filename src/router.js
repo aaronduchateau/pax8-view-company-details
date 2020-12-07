@@ -20,7 +20,7 @@ export default new Router({
     },
     {
       path: '/view-company/:id',
-      name: 'edit',
+      name: 'view',
       component: ViewCompany,
     },
   ],
