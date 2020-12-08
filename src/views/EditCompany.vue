@@ -2,30 +2,37 @@
   <div class="container">
     <div class="columns">
       <div class="column">
+        <button class="button" v-on:click="onBack()">Go Back</button>
         <SimpleCard widthStyle="360px">
-          <button v-on:click="onBack()">Go Back</button>
-          <br />
-          <br />
-          <br />
           <form id="demo">
-            <!-- text -->
-            <p>
-              name
-              <input type="text" v-model="name" />
-            </p>
-            <p>
-              domain
-              <input type="text" v-model="domain" />
-            </p>
-            <p>
-              numberOfEmployees
-              <input type="text" v-model="numberOfEmployees" />
-            </p>
-            <p>
-              subscriptionsPerEmployee
-              <input type="text" v-model="subscriptionsPerEmployee" />
-            </p>
-            <button v-on:click.stop="onSubmitChanges()">Submit Changes</button>
+            <h1 class="title">Edit Company</h1>
+            <div class="field">
+              <label class="label">Name</label>
+              <div class="control">
+                <input type="text" class="input" v-model="name" />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Domain</label>
+              <div class="control">
+                <input type="text" class="input" v-model="domain" />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Number of Employees</label>
+              <div class="control">
+                <input type="text" class="input" v-model="numberOfEmployees" />
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Subscriptions Per Employee</label>
+              <div class="control">
+                <input type="text" class="input" v-model="subscriptionsPerEmployee" />
+              </div>
+            </div>
+            <button class="button" v-on:click.stop="onSubmitChanges()">
+              Submit Changes
+            </button>
           </form>
         </SimpleCard>
       </div>
