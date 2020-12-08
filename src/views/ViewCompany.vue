@@ -1,34 +1,48 @@
 <template>
-  <div>
-    <h1>View Company</h1>
-    <button v-on:click="onBack()">Go Back</button>
-    <br />
-    <br />
-    <br />
-    <form id="demo">
-      <!-- text -->
-      <h1 class="title">Name</h1>
-      <p>
-        {{ name }}
-      </p>
-      <h1 class="title">domain</h1>
-      <p>
-        {{ domain }}
-      </p>
-      <h1 class="title">Employees</h1>
-      <p>
-        {{ numberOfEmployees }}
-        <Inc :num="numberOfEmployees" @bump="handleBump" />
-      </p>
-      <h1 class="title">Subscriptions Per Employee</h1>
-      <p>
-        {{ subscriptionsPerEmployee }}
-      </p>
-      <h1 class="title">Company Subscriptions</h1>
-      <p>
-        {{ companySubscriptions }}
-      </p>
-    </form>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <button class="button" v-on:click="onBack()">Go Back</button>
+        <SimpleCard widthStyle="405px">
+          <form id="demo">
+            <!-- text -->
+            <h1 class="title">View Company</h1>
+            <hr/>
+            <p class="label">Name</p>
+            <p class="text">
+              {{ name }}
+            </p>
+
+            <hr/>
+            <p class="label">Domain</p>
+            <p class="text">
+              {{ domain }}
+            </p>
+
+            <hr/>
+            <p class="label">Employees</p>
+            <p class="text">
+              {{ numberOfEmployees }}
+            </p>
+            <Inc :num="numberOfEmployees" @bump="handleBump" />
+
+            <hr/>
+            <p class="label">Subscriptions Per Employee</p>
+            <p class="text">
+              {{ subscriptionsPerEmployee }}
+            </p>
+
+            <hr/>
+            <p class="label">Company Subscriptions</p>
+            <p class="text">
+              {{ companySubscriptions }}
+            </p>
+
+
+          </form>
+        </SimpleCard>
+      </div>
+    </div>
   </div>
 </template>
 

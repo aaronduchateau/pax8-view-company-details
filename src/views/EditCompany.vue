@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="column">
         <button class="button" v-on:click="onBack()">Go Back</button>
-        <SimpleCard widthStyle="360px">
+        <SimpleCard widthStyle="405px">
           <form id="demo">
             <h1 class="title">Edit Company</h1>
             <div class="field">

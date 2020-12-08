@@ -1,14 +1,19 @@
 <template>
-  <div>
+  <div
+    style="
+      border: 1px solid #e2e2e2;
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin: 20px;
+    "
+  >
+    <p class="label">edit employees:</p>
+    <h1 class="title">{{ localTracker }}</h1>
+    <button class="button" v-on:click="localTracker++">up</button>
+    <button class="button" v-on:click="localTracker--">down</button>
     <hr />
-    edit employees: {{ localTracker }}
-    <button v-on:click="localTracker++">UP</button>
-    <button v-on:click="localTracker--">Down</button>
-    <hr />
-    <button v-on:click="submit">Submit</button>
-    <br />
-    <br />
-    <br />
+    <button class="button" v-on:click="submit">Submit</button>
   </div>
 </template>
 

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="columns">
       <div class="column">
-        <SimpleCard widthStyle="360px">
+        <SimpleCard widthStyle="405px">
           <h2 class="title">Companies</h2>
           <table class="table">
             <tr v-for="item in companyList" :key="item.id">
@@ -12,6 +12,7 @@
                 <button
                   :id="item.id"
                   v-on:click="onNavigate($event, 'edit-company')"
+                  class="button"
                 >
                   Edit details
                 </button>
@@ -20,6 +21,7 @@
                 <button
                   :id="item.id"
                   v-on:click="onNavigate($event, 'view-company')"
+                  class="button"
                 >
                   View details
                 </button>
