@@ -1,29 +1,35 @@
 <template>
-  <div>
-    <button v-on:click="onBack()">Go Back</button>
-    <br />
-    <br />
-    <br />
-    <form id="demo">
-      <!-- text -->
-      <p>
-        name
-        <input type="text" v-model="name" />
-      </p>
-      <p>
-        domain
-        <input type="text" v-model="domain" />
-      </p>
-      <p>
-        numberOfEmployees
-        <input type="text" v-model="numberOfEmployees" />
-      </p>
-      <p>
-        subscriptionsPerEmployee
-        <input type="text" v-model="subscriptionsPerEmployee" />
-      </p>
-      <button v-on:click.stop="onSubmitChanges()">Submit Changes</button>
-    </form>
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <SimpleCard widthStyle="360px">
+          <button v-on:click="onBack()">Go Back</button>
+          <br />
+          <br />
+          <br />
+          <form id="demo">
+            <!-- text -->
+            <p>
+              name
+              <input type="text" v-model="name" />
+            </p>
+            <p>
+              domain
+              <input type="text" v-model="domain" />
+            </p>
+            <p>
+              numberOfEmployees
+              <input type="text" v-model="numberOfEmployees" />
+            </p>
+            <p>
+              subscriptionsPerEmployee
+              <input type="text" v-model="subscriptionsPerEmployee" />
+            </p>
+            <button v-on:click.stop="onSubmitChanges()">Submit Changes</button>
+          </form>
+        </SimpleCard>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -45,8 +51,6 @@ export default {
   },
   methods: {
     getCompany() {
-      console.log("twf");
-      console.log(this.$route.params.id);
       const companyId = this.$route.params.id;
       services.getById(companyId).then((response) => {
         console.log(response);

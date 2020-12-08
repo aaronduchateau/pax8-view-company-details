@@ -34,7 +34,6 @@
 
 <script>
 import services from "../services/CompanyService";
-import SimpleCard from "../components/SimpleCard";
 
 export default {
   name: "home",
