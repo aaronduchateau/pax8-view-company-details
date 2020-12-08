@@ -5,7 +5,7 @@
     <button v-on:click="localTracker++">UP</button>
     <button v-on:click="localTracker--">Down</button>
     <hr />
-    <button v-on:click="submitX">Submit</button>
+    <button v-on:click="submit">Submit</button>
     <br />
     <br />
     <br />
@@ -17,16 +17,29 @@ import services from "../services/CompanyService";
 
 export default {
   name: "Inc",
-  props: ["num", "callback"],
+  props: {
+    num: {
+      type: Number,
+      default: null,
+    },
+  },
   data() {
     /* I need a different lifecycle method here that pops the url param into local state, but out of time */
     return {
-      localTracker: this.$props.num,
+      localTracker: null,
     };
   },
-  created() {},
+
+  watch: {
+    num: {
+      immediate: true,
+      handler(val) {
+        this.localTracker = val;
+      },
+    },
+  },
   methods: {
-    submitX() {
+    submit() {
       this.$emit("bump", this.localTracker);
     },
   },

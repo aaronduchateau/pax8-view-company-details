@@ -18,7 +18,7 @@
       <h1 class="title">Employees</h1>
       <p>
         {{ numberOfEmployees }}
-        <Inc v-bind:num="numberOfEmployees" @bump="handleBump" />
+        <Inc :num="numberOfEmployees" @bump="handleBump" />
       </p>
       <h1 class="title">Subscriptions Per Employee</h1>
       <p>
@@ -42,7 +42,7 @@ export default {
     return {
       name: null,
       domain: null,
-      numberOfEmployees: null,
+      numberOfEmployees: 0,
       subscriptionsPerEmployee: null,
       companySubscriptions: null,
     };
@@ -57,7 +57,6 @@ export default {
     getCompany() {
       const companyId = this.$route.params.id;
       services.getById(companyId).then((response) => {
-        console.log(response);
         this.name = response.name;
         this.domain = response.domain;
         this.numberOfEmployees = response.numberOfEmployees;
@@ -68,10 +67,6 @@ export default {
     },
     onBack: function () {
       this.$router.push("/");
-    },
-    onSubmitChanges: function () {
-      const newCompDetails = `here are the changes you requested: ${this.name}, ${this.domain}, ${this.numberOfEmployees}, ${this.subscriptionsPerEmployee},`;
-      alert(newCompDetails);
     },
     handleBump(newNum) {
       this.localBump(newNum);
